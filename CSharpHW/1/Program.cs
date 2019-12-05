@@ -1,4 +1,7 @@
-﻿using System;
+﻿/** 7. Create Hello World console application and print your name there. Colour of your text should be yellow.
+*/
+
+using System;
 
 namespace _1
 {

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/**
+2. Create calculator console application. Calculator should support basic operations with double type.
+   The result should be displayed with two digits after the decimal point. */
+
+using System;
 
 namespace _2
 {

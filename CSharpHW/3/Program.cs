@@ -1,4 +1,11 @@
-﻿using System;
+﻿/**
+1. Create console application which gets user's birth date and returns his Age and Zodiac sign. 
+Please use recursion for birth date validation.
+Application should accept date only in the following format: DD/MM/YYYY. 
+In case if the format is incorrect the application should ask user to provide birth date again.
+*/
+
+using System;
 using System.Text.RegularExpressions;
 
 namespace _3

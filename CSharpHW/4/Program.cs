@@ -1,4 +1,17 @@
-﻿using System;
+﻿/**
+делал без ВПФ в консоли - 1. Create WPF application with user registration form.
+   Registration form should support the following fields and validation rules:
+   First Name       - only letters, length < 255 symbols,
+   Last Name        - only letters, length < 255 symbols,
+   Birth date       - only numbers, 0 < day < 32, 0 < month < 13, 1900 < year < current year,
+   Gender           - only male or female,
+   Email            - should contains @, length < 255 symbols,
+   Phone number     - only numbers, length = 12
+   Additional info  - length < 2000 symbols.
+   
+   Please use decision statements for validation purpose. */
+
+using System;
 using System.Text.RegularExpressions;
 
 namespace _4
