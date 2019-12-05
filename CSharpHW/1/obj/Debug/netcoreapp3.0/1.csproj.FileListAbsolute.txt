@@ -1,0 +1,11 @@
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/bin/Debug/netcoreapp3.0/1
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/bin/Debug/netcoreapp3.0/1.deps.json
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/bin/Debug/netcoreapp3.0/1.runtimeconfig.json
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/bin/Debug/netcoreapp3.0/1.runtimeconfig.dev.json
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/bin/Debug/netcoreapp3.0/1.dll
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/bin/Debug/netcoreapp3.0/1.pdb
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/obj/Debug/netcoreapp3.0/1.csprojAssemblyReference.cache
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/obj/Debug/netcoreapp3.0/1.AssemblyInfoInputs.cache
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/obj/Debug/netcoreapp3.0/1.AssemblyInfo.cs
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/obj/Debug/netcoreapp3.0/1.dll
+/Users/alexandr.buzskiy/Documents/csharpbuzskiy/CSharpHW/1/obj/Debug/netcoreapp3.0/1.pdb
