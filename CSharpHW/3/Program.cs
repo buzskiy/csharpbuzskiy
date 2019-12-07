@@ -6,6 +6,7 @@ In case if the format is incorrect the application should ask user to provide bi
 */
 
 using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace _3
@@ -25,34 +26,35 @@ namespace _3
 
         
         //recursive method to validate data in dd/MM/yyyy format 
-        static string ValidateDate()
+        static DateTime ValidateDate()
         {
             Console.WriteLine("Enter your birth date:");
-            var date = Console.ReadLine();
-            Regex dateregex = new Regex(@"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$");
-            var isValid = dateregex.IsMatch(date);
+            DateTime date = DateTime.MinValue;
+            bool datevalue = false;
+            do
+                {   
+                    var input = Console.ReadLine();
+                    datevalue = DateTime.TryParseExact(input, "dd/MM/yyyy", null, DateTimeStyles.None, out date);
+                    Console.WriteLine("Wrong date format. Please try again.");
 
-            if (!isValid)
-                {
-                    Console.WriteLine("Wrong Date Format. Please try again:");
-                    return ValidateDate();
                 }
-            return date;
+            while(!datevalue);
+                return date;
         }
 
         //method to calculate age = current date - birth date
-        static int Age(string date)
+        static int Age(DateTime date)
         {
-            var age = DateTime.Now.Year - DateTime.ParseExact(date, "dd/MM/yyyy", null).Year;
+            var age = DateTime.Now.Year - date.Year;
            
             return age;
 
         }
         //method to calculate zodiac sign with switch
-        static string Findzodiac(string date)
+        static string Findzodiac(DateTime date)
             {
-            var month = DateTime.ParseExact(date, "dd/MM/yyyy", null).Month;
-            var day = DateTime.ParseExact(date, "dd/MM/yyyy", null).Day;
+            var month = date.Month;
+            var day = date.Day;
                 switch (month)
                 {
                     case 1: if(day <= 20)
@@ -104,7 +106,7 @@ namespace _3
                         else
                         {return "Capricorn"; }
                     default:
-                        return "";
+                        return "Something went wrong with calculation. Please try again.";
                 }
             
              

@@ -12,6 +12,7 @@
    Please use decision statements for validation purpose. */
 
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace _4
@@ -30,6 +31,8 @@ namespace _4
             Console.WriteLine("Success!");
         }
                 
+//ввод текста и валидацию сделать через цикл 
+//поля можно сдлеать через лист
                 
         //First name 
         static void ValidateFirstName()
