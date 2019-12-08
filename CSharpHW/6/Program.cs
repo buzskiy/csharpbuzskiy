@@ -18,7 +18,7 @@ namespace _6
 
             do 
             {
-                RandomNumber = rnd.Next(1,5);
+                RandomNumber = rnd.Next(1,11);
                 Console.WriteLine("Please enter number from 1 to 10:");
                 while (true)
                     {
@@ -27,7 +27,7 @@ namespace _6
                                 UserNumber = Convert.ToInt32(Console.ReadLine());
                                 break;
                             }
-                        catch (Exception ex)
+                        catch (Exception)
                             {
                                 Console.WriteLine("Wrong Input Format");
                                 continue;
