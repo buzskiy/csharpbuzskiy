@@ -1,4 +1,9 @@
-﻿using System;
+﻿//2. Создайте классы Engine, Color, Transmission.
+//   Создайте класс CarConstructor с методом Construct,
+//   который принимает Engine, Color, и Transmission в качестве агрументов и возвращает сконструированную машину.
+//   Класс CarConstructor также должен иметь метод Reconstruct который работает с типом Car и меняет двигатель.
+
+using System;
 
 namespace _8._2
 {

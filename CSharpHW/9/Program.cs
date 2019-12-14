@@ -1,4 +1,14 @@
-﻿using System;
+﻿//1. Создайте структуру FileHandle.Стурктура должна содержать FileSize, FileName, FilePath, FileAccessEnum.
+//   FileAccessEnum в свою очередь представляет собой флаговое перечисление(Read, Write). 
+//   Напишите несколько методов принимающих полный путь к файлу и возвращающих соответствующий FileHandle:
+//       OpenForRead - открытие файла на чтение.
+//	   OpenForWrite - открытие файла на запись.
+
+//	   OpenFile - открытие файла с указанием FileAccessEnum.
+//   Продемонстрируйте использование описанных методов.
+//   Продемонстируйте открытие файла в режиме ReadWrite.
+   
+using System;
 
 namespace _9
 {
