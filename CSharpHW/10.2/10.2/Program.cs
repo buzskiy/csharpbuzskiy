@@ -10,32 +10,30 @@ namespace _10._2
     {
         static void Main()
         {
-            Console.WriteLine("Initializing array.. \n");
-            string[] test = new string[0];
-            string input = "";
-            string searchInput = "";
+            //initializing object
+            ArrayOperations testarray = new ArrayOperations();
 
-            do
-            {
-                Console.WriteLine("Please enter value to add to array:");
-                input = Console.ReadLine();
-                test = ArrayOperations.AddElement(test, input);
-                Console.WriteLine("Array elements are:");
-                foreach (string i in test)
-                {
-                    Console.Write(i + " ");
-                }
-                Console.WriteLine("\n");
-            }
-            while (input != "q");
+            //testing method AddElement
+            testarray.AddElement("value 1");
+            testarray.AddElement("value 2");
+            Console.WriteLine("Checking values have been successfully added");
+            Console.WriteLine(testarray.array[0]);
+            Console.WriteLine(testarray.array[1]);
 
-            do 
-            {
-                Console.WriteLine("Please enter value to search by:");
-                searchInput = Console.ReadLine();
-                ArrayOperations.ContainsElement(test, searchInput);
-            }
-            while (searchInput != "q");
+            //testing whether array contains element
+            Console.WriteLine("Should be True:");
+            Console.WriteLine(testarray.ContainsElement("value 1"));
+            Console.WriteLine("Should be False:");
+            Console.WriteLine(testarray.ContainsElement("fsff"));
+            Console.WriteLine("Should be True:");
+            Console.WriteLine(testarray.ContainsElement("value 2"));
+
+            //getting element by index
+            Console.WriteLine("Should be 'value 1'");
+            Console.WriteLine(testarray.GetElementByIndex(0));
+            Console.WriteLine("Should be 'value 2'");
+            Console.WriteLine(testarray.GetElementByIndex(1));
+
 
         }
     }
@@ -43,36 +41,36 @@ namespace _10._2
 
     public class ArrayOperations
     {
+        public string [] array = new string [0];
+        public string arrayElement;
+        public string searchInput;
+        public string indexInput;
+        public bool exists;
 
-
-        public static string[] AddElement(string[] array, string element)
+        public string[] AddElement(string addelement)
         {
             Array.Resize(ref array, array.Length + 1);
-            array[array.GetUpperBound(0)] = element;
+            array[array.GetUpperBound(0)] = addelement;
             return array;
         }
 
-        public static void ContainsElement(string[] array, string searchInput)
+        public bool ContainsElement(string searchInput)
         {
             foreach (string element in array)
             {
-                if (element == searchInput)
+                exists = false;
+                if (searchInput == element)
                 {
-                    Console.WriteLine("Element Exists");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Element Does Not Exist");
+                    exists = true;
                     break;
                 }
             }
-            
+            return exists;
         }
 
-        public void GetByIndex()
+        public string GetElementByIndex(int indexInput)
         {
-            //test.GetValue()
+                return array[indexInput];
         }
     }
 }
