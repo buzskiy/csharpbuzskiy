@@ -17,8 +17,8 @@ namespace _13
             using (ResourceHolderDerived n2 = new ResourceHolderDerived())
             {
             }
-            ResourceHolderBase n3 = new ResourceHolderBase();
-            n3.Dispose();
+            //ResourceHolderBase n3 = new ResourceHolderBase();
+            //n3.Dispose();
             ResourceHolderDerived n4 = new ResourceHolderDerived();
             n4.Dispose();
             Console.WriteLine("End of program");
