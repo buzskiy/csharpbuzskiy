@@ -17,13 +17,16 @@ namespace _13
             using (ResourceHolderDerived n2 = new ResourceHolderDerived())
             {
             }
-            //ResourceHolderBase n3 = new ResourceHolderBase();
-            //n3.Dispose();
+            ResourceHolderBase n3 = new ResourceHolderBase();
+            n3.Dispose();
+            GC.SuppressFinalize(n3);
             ResourceHolderDerived n4 = new ResourceHolderDerived();
             n4.Dispose();
+            GC.SuppressFinalize(n4);
             Console.WriteLine("End of program");
             
-            
+
+
 
         }
     }
@@ -48,7 +51,7 @@ namespace _13
 
     }
 
-    public class ResourceHolderDerived : ResourceHolderBase
+    public class ResourceHolderDerived : ResourceHolderBase, IDisposable
     {
 
         public new void Dispose()
