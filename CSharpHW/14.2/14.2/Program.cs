@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace _14._2
 {
@@ -7,29 +8,40 @@ namespace _14._2
         static void Main()
         {
             string playagain = "";
+            Lottery lotozabava = new Lottery();
             while (playagain != "no")
                 {
-                Console.WriteLine("Hi. This is a lottery.");
-                Lottery lotozabava = new Lottery();
-                LotteryTicket lotterydeal = new LotteryTicket();
+                    Console.WriteLine("Hi. This is a lottery.");
+                    LotteryTicket lotterydeal = new LotteryTicket();
+                    Startgame:
+                    Console.WriteLine($"\nYou are required to enter {lotozabava.ticketsize} numbers in a range from {lotozabava.minrange} to {lotozabava.maxrange}.");
+                    Console.WriteLine($"The system will than generate it's own {lotozabava.ticketsize} numbers and match them with yours. Let's see who wins :)");
+                    Console.WriteLine("\nCAUTION: Please enter single number in a row. \n");
+                    UserTicket happyticket = lotozabava.FillTicket();
+                    lotozabava.LotteryResult(happyticket, lotterydeal);
 
-                Console.WriteLine($"\nYou are required to enter {lotozabava.ticketsize} numbers in a range from {lotozabava.minrange} to {lotozabava.maxrange}.");
-                Console.WriteLine($"The system will than generate it's own {lotozabava.ticketsize} numbers and match them with yours. Let's see who wins :)");
-                Console.WriteLine("\nCAUTION: Please enter single number in a row. \n");
-                UserTicket happyticket = lotozabava.FillTicket();
-                lotterydeal.LotteryResult(happyticket, lotterydeal);
+                    lotozabava.SaveLotteryDealHistory(happyticket, lotterydeal, lotozabava); 
+                
+                    ContinuePlaying:
+                        Console.WriteLine("\nDo you want to play again? Type 'yes' or 'no'. If you want to see play history, type 'h'");
+                        playagain = Console.ReadLine();
+                        switch (playagain)
+                        {
+                            case "yes":
+                                goto Startgame;
+                            case "no":
+                                continue;
+                            case "h":
+                                for (int i = 0; i < lotozabava.results.Count; i++)
+                                {
 
-                ContinuePlaying:
-                    Console.WriteLine("\nDo you want to play again? Type 'yes' or 'no'");
-                    playagain = Console.ReadLine();
-                    if (playagain != "yes" && playagain != "no")
-                    {
-                        goto ContinuePlaying;
-                    }
-                    else
-                    {
-                        continue;
-                    }
+                                    Console.WriteLine(lotozabava.results[i]);
+                                }
+                                goto ContinuePlaying;
+
+                            default:
+                                goto ContinuePlaying;
+                        }
                 }
                 Console.WriteLine("\nThanks for playing! Bye!");
         }
@@ -38,6 +50,7 @@ namespace _14._2
     public class Lottery
     {
         protected int[] tickets;
+        public readonly List <string> results;
         public readonly int maxrange;
         public readonly int minrange;
         public readonly int ticketsize;
@@ -46,11 +59,11 @@ namespace _14._2
 
         public Lottery()
         {
-            
             maxrange = 9;
             minrange = 1;
             ticketsize = 6;
             tickets = new int[ticketsize];
+            results = new List<string>();
 
         }
 
@@ -134,9 +147,19 @@ namespace _14._2
             }
             return lotteryresult;
         }
-    }
 
-    public class UserTicket : Lottery
+        public void SaveLotteryDealHistory(UserTicket userticket, LotteryTicket lotteryticket, Lottery lottery)
+        {
+            string userhistory = string.Join(" ", userticket.tickets); 
+            string lotteryhistory = string.Join(" ", lotteryticket.tickets);
+            string totalhistory = "Play History. User Ticket: " + userhistory + " Lottery Deal " + lotteryhistory + " Lottery won: " + lottery.lotteryresult;
+            results.Add(totalhistory);
+        }
+
+
+}
+
+public class UserTicket : Lottery
     {
     }
 
