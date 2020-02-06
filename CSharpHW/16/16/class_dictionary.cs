@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace _16
 {
-    public class Dictionary<T> where T : class
+    public class Dictionary<T>
     {
         public List<DictionaryObject<T>> dictionary = new List<DictionaryObject<T>>();
 
@@ -14,17 +13,8 @@ namespace _16
         }
         public void Remove(T key)
         {
-            
-            foreach (DictionaryObject<T> obj in dictionary.ToList())
-            {
-                if (obj.Key.Equals(key))
-                {
-                    dictionary.Remove(obj);
-                }
-            }
-            //var remove = dictionary.Find(i => i.Key == key); why does not this work?
-            //dictionary.Where(i => i.Key == key).FirstOrDefault();
-
+            var elementToRemove = dictionary.Find(i => i.Key.Equals(key));
+            dictionary.Remove(elementToRemove);
         }
     }
 
